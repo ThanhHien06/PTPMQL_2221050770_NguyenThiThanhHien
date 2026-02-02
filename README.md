@@ -1,9 +1,7 @@
 Họ tên: Nguyễn Thị Thanh Hiền
 MSV: 2221050770
-<<<<<<< HEAD
-# Bài thực hành số 3
-=======
->>>>>>> 1dbd2ee44ff1b30470c45f3c1bbfc3994af01883
+
+Bài thực hành số 3
 Cấu trúc thư mục của dự án .Net MVC
     1. Controllers
         - Chứa các Controller - xử lý yêu cầu từ người dùng
@@ -91,8 +89,7 @@ Tìm hiểu về Controller, View trong .Net MVC
                 }
         }
     - View: hiển thị giao diện cho người dùng 
-<<<<<<< HEAD
-# Bài thực hành số 4
+Bài thực hành số 4
     1. Tìm hiểu về ViewBag trong MVC: truyền dữ liệu từ controller sang view
         - Là một dynamic object (đối tượng động)
         - Dùng để chứa dữ liệu tạm thời trong một request
@@ -224,13 +221,7 @@ Tìm hiểu về Controller, View trong .Net MVC
 
 
 
-
-
-        
-
-=======
->>>>>>> 1dbd2ee44ff1b30470c45f3c1bbfc3994af01883
-    
+ 
 
 
 

@@ -1,0 +1,13 @@
+@model Sinhvien.Models.Student
+<h2>Xóa sinh viên</h2>
+<h3>Bạn có chắc muốn xóa sinh viên này không?</h3>
+<div>
+    <p><b>Mã sinh viên:</b> @Model.StudentCode</p>
+    <p><b>Tên sinh viên:</b> @Model.FullName</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="StudentCode" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index">Quay lại</a>
+</form>

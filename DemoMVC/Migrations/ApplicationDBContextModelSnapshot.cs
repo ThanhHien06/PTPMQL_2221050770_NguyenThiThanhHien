@@ -21,7 +21,11 @@ namespace DemoMVC.Migrations
                     b.Property<string>("StudentCode")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("Age")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("StudentCode");

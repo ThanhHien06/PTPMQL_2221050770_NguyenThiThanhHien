@@ -7,7 +7,7 @@
 </div>
 
 <form asp-action="Delete">
-    <input type="hidden" asp-for="StudentCode" />
+    <input type="hidden" name="id" value="@Model.StudentCode"/>
     <input type="submit" value="Delete" class="btn btn-danger" />
     <a asp-action="Index">Quay lại</a>
 </form>

@@ -1,0 +1,15 @@
+@model Sinhvien.Models.Student
+
+<h2>Chi tiết sinh viên</h2>
+
+<div>
+    <p><strong>Mã sinh viên:</strong> @Model.StudentCode</p>
+    <p><strong>Họ tên:</strong> @Model.FullName</p>
+    <p><strong>Tuổi:</strong> @Model.Age</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+</div>
+
+<br />
+
+<a asp-action="Edit" asp-route-id="@Model.StudentCode">Sửa</a> |
+<a asp-action="Index">Quay lại</a>

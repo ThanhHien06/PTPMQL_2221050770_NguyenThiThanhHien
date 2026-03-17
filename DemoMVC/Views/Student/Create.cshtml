@@ -1,4 +1,4 @@
-<h2>Form thêm mới dữ liệu Sinh viên</h2>
+@*<h2>Form thêm mới dữ liệu Sinh viên</h2>
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label>Mã sinh viên</label>
@@ -11,4 +11,27 @@
     <div class="form-group">
         <input type="submit" class="form-control" value="Create new student">
     </div>
+</form>
+*@
+@model Sinhvien.Models.Student
+<form asp-action="Create">
+    
+    <label>Mã sinh viên</label>
+    <input asp-for="StudentCode" />
+    <span asp-validation-for="StudentCode"></span>
+
+    <label>Họ tên</label>
+    <input asp-for="FullName" />
+    <span asp-validation-for="FullName"></span>
+
+    <label>Tuổi</label>
+    <input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+
+    <label>Email</label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <button type="submit">Lưu</button>
+
 </form>

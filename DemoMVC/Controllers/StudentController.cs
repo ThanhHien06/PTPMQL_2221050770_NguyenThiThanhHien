@@ -45,9 +45,13 @@ namespace DemoMVC.Controllers
         [HttpPost]
         public IActionResult Create(Student std)
         {
-            _context.Students.Add(std);
-            _context.SaveChanges(); 
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Students.Add(std);
+                _context.SaveChanges(); 
+                return RedirectToAction("Index");
+            }
+            return View(std);
         }
         public async Task<IActionResult> Edit(string id)
         {
@@ -65,9 +69,13 @@ namespace DemoMVC.Controllers
             {
                 return NotFound();
             }
-            _context.Entry(std).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Entry(std).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");   
+            }
+            return View(std);
         }
         public async Task<IActionResult> Delete(string id)
         {
@@ -76,7 +84,8 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var std = await _context.Students.FirstOrDefaultAsync(m => m.StudentCode == id);
+            var std = await _context.Students
+                .FirstOrDefaultAsync(m => m.StudentCode == id);
 
             if (std == null)
             {
@@ -84,7 +93,7 @@ namespace DemoMVC.Controllers
             }
             return View(std);
         }
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
@@ -97,6 +106,16 @@ namespace DemoMVC.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var std = await _context.Students.FindAsync(id);
+            if (std == null)
+            {
+                return NotFound();
+            }
+            return View(std);
         }
 
     }

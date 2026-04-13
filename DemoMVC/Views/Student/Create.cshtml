@@ -1,3 +1,5 @@
+@using Sinhvien.Models
+@using Sinhvien.ViewModels
 @*<h2>Form thêm mới dữ liệu Sinh viên</h2>
 <form asp-action="Create" method="post">
     <div class="form-group">
@@ -31,6 +33,10 @@
     <label>Email</label>
     <input asp-for="Email" />
     <span asp-validation-for="Email"></span>
+
+    <label>Khoa</label>
+    <input asp-for="FacultyName" />
+    <span asp-validation-for="FacultyName"></span>
 
     <button type="submit">Lưu</button>
 

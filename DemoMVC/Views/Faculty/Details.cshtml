@@ -1,0 +1,19 @@
+@*@model Sinhvien.Models.Faculty
+
+<h2>Chi tiết khoa</h2>
+
+<div>
+    <p><b>ID:</b> @Model.FacultyId</p>
+    <p><b>Tên khoa:</b> @Model.FacultyName</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.FacultyId">Sửa</a> |
+<a asp-action="Index">Quay lại</a>*@
+@model Sinhvien.Models.Faculty
+
+<h2>Chi tiết khoa</h2>
+
+<p>Mã khoa: @Model.FacultyId</p>
+<p>Tên khoa: @Model.FacultyName</p>
+
+<a asp-action="Index">Quay lại</a>

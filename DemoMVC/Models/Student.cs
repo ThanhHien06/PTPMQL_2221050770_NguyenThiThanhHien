@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Sinhvien.Models
 {
     public class Student
@@ -18,5 +19,13 @@ namespace Sinhvien.Models
 
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
+        public string FacultyID { get; set; }
+
+        [ForeignKey("FacultyID")]
+        public Faculty Faculty { get; set; }
+
+        [Required(ErrorMessage = "Tên khoa không được để trống")]
+        [StringLength(25)]
+        public string FacultyName { get; set; } 
     }
 }

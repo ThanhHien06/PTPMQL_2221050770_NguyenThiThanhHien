@@ -1,0 +1,30 @@
+@*@model Sinhvien.Models.Faculty
+
+<h2>Xóa khoa</h2>
+
+<h3>Bạn có chắc muốn xóa không?</h3>
+
+<div>
+    <p><b>ID:</b> @Model.FacultyId</p>
+    <p><b>Tên khoa:</b> @Model.FacultyName</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="FacultyId" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index">Hủy</a>
+</form>*@
+@model Sinhvien.Models.Faculty
+
+<h2>Xóa khoa</h2>
+
+<p>Bạn có chắc muốn xóa không?</p>
+
+<p>@Model.FacultyName</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="FacultyId" />
+    <button type="submit">Xóa</button>
+</form>
+
+<a asp-action="Index">Hủy</a>

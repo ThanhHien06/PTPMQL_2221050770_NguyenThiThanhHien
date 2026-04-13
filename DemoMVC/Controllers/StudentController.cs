@@ -23,8 +23,10 @@ public class StudentController : Controller
 */
 using DemoMVC.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Sinhvien.Models;
+using Sinhvien.ViewModels;
 namespace DemoMVC.Controllers
 {
 
@@ -33,13 +35,20 @@ namespace DemoMVC.Controllers
         private readonly ApplicationDBContext _context = context;
         public IActionResult Index()
         {
-            // lấy danh sách sinh viên từ csdl
-            var listStudents = _context.Students.ToList();
-            // truyền danh sách sinh viên vào view
-            return View(listStudents);
+            var data = _context.Students
+                .Include(s => s.Faculty)
+                .Select(s => new StudentFacultyViewModel
+                {
+                    StudentCode = s.StudentCode,
+                    FullName = s.FullName,
+                    FacultyName = s.Faculty.FacultyName
+                }).ToList();
+
+            return View(data);
         }
         public IActionResult Create()
         {
+            ViewBag.FacultyID = new SelectList(_context.Faculties, "FacultyID", "FacultyName");
             return View();
         }
         [HttpPost]
@@ -51,6 +60,7 @@ namespace DemoMVC.Controllers
                 _context.SaveChanges(); 
                 return RedirectToAction("Index");
             }
+            ViewBag.FacultyID = new SelectList(_context.Faculties, "FacultyID", "FacultyName", std.FacultyID);
             return View(std);
         }
         public async Task<IActionResult> Edit(string id)
@@ -60,6 +70,7 @@ namespace DemoMVC.Controllers
             {
                 return NotFound();
             }
+            ViewBag.FacultyID = new SelectList(_context.Faculties, "FacultyID", "FacultyName", std.FacultyID);
             return View(std);
         }
         [HttpPost]
@@ -85,6 +96,7 @@ namespace DemoMVC.Controllers
             }
 
             var std = await _context.Students
+                .Include(x => x.Faculty)
                 .FirstOrDefaultAsync(m => m.StudentCode == id);
 
             if (std == null)
@@ -110,7 +122,9 @@ namespace DemoMVC.Controllers
 
         public async Task<IActionResult> Details(string id)
         {
-            var std = await _context.Students.FindAsync(id);
+             var std = _context.Students
+                .Include(x => x.Faculty)
+                .FirstOrDefault(x => x.StudentCode == id);
             if (std == null)
             {
                 return NotFound();

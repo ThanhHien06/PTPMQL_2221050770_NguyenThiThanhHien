@@ -1,5 +1,6 @@
+using DemoMVC.Models;
+using DemoMVC.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using Sinhvien.Models;
 
 namespace DemoMVC.Data
 {
@@ -9,8 +10,16 @@ namespace DemoMVC.Data
             : base(options)
         {
         }
-
+        //sinh vien
         public DbSet<Student> Students { get; set; }
         public DbSet<Faculty> Faculties { get; set; }
+        
+        //khach hang
+        public DbSet<ChiTietDonHang> ChiTietDonHangs { get; set;}
+        public DbSet<KhachHang> KhachHangs { get; set;}
+        public DbSet<DonHang> DonHangs { get; set;}
+        public DbSet<SanPham> SanPhams { get; set;}
     }
 }
+
+

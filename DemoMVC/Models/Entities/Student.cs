@@ -1,8 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace Sinhvien.Models
-{
-    public class Student
+namespace DemoMVC.Models.Entities;
+public class Student
     {
         [Key]
         
@@ -28,4 +27,4 @@ namespace Sinhvien.Models
         [StringLength(25)]
         public string FacultyName { get; set; } 
     }
-}
+

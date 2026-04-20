@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-namespace Sinhvien.Models;
+using DemoMVC.Models.Entities;
+namespace DemoMVC.Models.Entities;
 
 public class Faculty
 {

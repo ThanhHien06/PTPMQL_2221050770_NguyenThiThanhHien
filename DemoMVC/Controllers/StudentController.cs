@@ -22,10 +22,10 @@ public class StudentController : Controller
 }
 */
 using DemoMVC.Data;
+using DemoMVC.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Sinhvien.Models;
 using Sinhvien.ViewModels;
 namespace DemoMVC.Controllers
 {

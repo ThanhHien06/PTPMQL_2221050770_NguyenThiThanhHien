@@ -1,28 +1,6 @@
-/*using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Sinhvien.Models;
-
-public class StudentController : Controller
-{
-    // Hiển thị form
-    [HttpGet]
-    public ActionResult Index()
-    {
-        return View();
-    }
-
-    // Nhận dữ liệu từ form
-    [HttpPost]
-    public ActionResult Index(Student std)
-    {
-        // Gửi lại object Student sang View
-        ViewBag.Thongbao = "Xin chào: " + std.FullName + " - Mã sinh viên: " + std.StudentCode;
-        return View();
-    }
-}
-*/
 using DemoMVC.Data;
 using DemoMVC.Models.Entities;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -48,21 +26,25 @@ namespace DemoMVC.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.FacultyID = new SelectList(_context.Faculties, "FacultyID", "FacultyName");
+            ViewBag.FacultyId = new SelectList(_context.Faculties, "FacultyId", "FacultyName");
             return View();
         }
         [HttpPost]
         public IActionResult Create(Student std)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Students.Add(std);
-                _context.SaveChanges(); 
-                return RedirectToAction("Index");
+                ViewBag.FacultyId = new SelectList(_context.Faculties, "FacultyId", "FacultyName", std.FacultyID);
+
+                return View(std);
             }
-            ViewBag.FacultyID = new SelectList(_context.Faculties, "FacultyID", "FacultyName", std.FacultyID);
-            return View(std);
+
+            _context.Students.Add(std);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
+
         public async Task<IActionResult> Edit(string id)
         {
             var std = await _context.Students.FindAsync(id);

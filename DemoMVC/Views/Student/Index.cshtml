@@ -37,7 +37,7 @@
             <th>Student Code</th>
             <th>Full Name</th>
             <th>Faculty</th>
-            @*<th>Email</th>*@
+            <th>Email</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -48,7 +48,7 @@
                 <td>@student.StudentCode</td>
                 <td>@student.FullName</td>
                 <td>@student.FacultyName</td>
-                @*<td>@student.Email</td>*@
+                <td>@student.Email</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@student.StudentCode">Edit</a>
                     <a asp-action="Delete" asp-route-id="@student.StudentCode">Delete</a>

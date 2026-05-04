@@ -23,8 +23,5 @@ public class Student
         [ForeignKey("FacultyID")]
         public Faculty Faculty { get; set; }
 
-        [Required(ErrorMessage = "Tên khoa không được để trống")]
-        [StringLength(25)]
-        public string FacultyName { get; set; } 
     }
 

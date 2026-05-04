@@ -10,7 +10,7 @@ public class Faculty
     [Required(ErrorMessage = "Tên khoa không được để trống")]
     public string FacultyName { get; set; }
 
-    public ICollection<Student> Students { get; set; }
+    public ICollection<Student> Students { get; set; } = new List<Student>();
 
 }
 

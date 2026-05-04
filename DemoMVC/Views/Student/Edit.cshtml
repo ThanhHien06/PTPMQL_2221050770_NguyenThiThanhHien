@@ -21,7 +21,7 @@
     
     <div class="form-group">
         <label>Khoa</label>
-        <input type="text" class="form-control" name="FacultyName" placeholder="Nhập khoa" value="@Model.FacultyName">
+        <select asp-for="FacultyID" asp-items="ViewBag.FacultyId" class="form-control"></select>
     </div>
     <div class="form-group">
         <input type="submit" class="form-control" value="Update Student">

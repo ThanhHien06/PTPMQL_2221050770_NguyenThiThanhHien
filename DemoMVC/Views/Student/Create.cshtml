@@ -16,6 +16,7 @@
 *@
 @model DemoMVC.Models.Entities.Student
 <form asp-action="Create">
+    <div asp-validation-summary="All"></div>
     
     <label>Mã sinh viên</label>
     <input asp-for="StudentCode" />
@@ -34,8 +35,8 @@
     <span asp-validation-for="Email"></span>
 
     <label>Khoa</label>
-    <input asp-for="FacultyName" />
-    <span asp-validation-for="FacultyName"></span>
+    <select asp-for="FacultyID" asp-items="ViewBag.FacultyId"></select>
+    <span asp-validation-for="FacultyID"></span>
 
     <button type="submit">Lưu</button>
 

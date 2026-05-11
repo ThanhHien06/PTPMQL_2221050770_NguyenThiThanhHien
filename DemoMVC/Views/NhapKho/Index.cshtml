@@ -1,0 +1,34 @@
+@model IEnumerable<DemoMVC.Models.Entities.PhieuNhap>
+
+@{
+    ViewData["Title"] = "Danh sách nhập kho";
+}
+
+<h1>Danh sách Phiếu Nhập Kho</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Lập phiếu nhập mới</a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Mã Phiếu</th>
+            <th>Nhà Cung Cấp</th>
+            <th>Ngày Nhập</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.PhieuNhapId</td>
+            <td>@item.NhaCungCap?.TenNhaCungCap</td>
+            <td>@item.NgayNhap.ToString("dd/MM/yyyy")</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.PhieuNhapId" class="btn btn-info btn-sm">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.PhieuNhapId" class="btn btn-danger btn-sm">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

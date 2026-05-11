@@ -9,9 +9,8 @@ public partial class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddDbContext<ApplicationDBContext>(options =>
-            options.UseSqlite(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-
+        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
         builder.Services.AddControllersWithViews();
         ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         var app = builder.Build();

@@ -19,6 +19,15 @@ namespace DemoMVC.Data
         public DbSet<KhachHang> KhachHangs { get; set;}
         public DbSet<DonHang> DonHangs { get; set;}
         public DbSet<SanPham> SanPhams { get; set;}
+
+        //quan ly kho
+        public DbSet<NhaCungCap> NhaCungCaps { get; set; }
+        public DbSet<LoaiThietBi> LoaiThietBis { get; set; }
+        public DbSet<ThietBi> ThietBis { get; set; }
+        public DbSet<PhieuNhap> PhieuNhaps { get; set; }
+        public DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
+        public DbSet<PhieuXuat> PhieuXuats { get; set; }
+        public DbSet<ChiTietPhieuXuat> ChiTietPhieuXuats { get; set; }
     }
 }
 

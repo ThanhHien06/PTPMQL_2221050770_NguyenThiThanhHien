@@ -1,0 +1,95 @@
+@model DemoMVC.ViewModel.XuatKhoVM
+
+@{
+    ViewData["Title"] = "Lập Phiếu Xuất Kho";
+}
+
+<h1>Lập Phiếu Xuất Kho</h1>
+<hr />
+
+<div asp-validation-summary="All" class="text-danger fw-bold fs-5"></div>
+
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Thông tin chung</h4>
+            <div class="form-group mt-2">
+                <label class="control-label">Ngày Xuất</label>
+                <input asp-for="PhieuXuat.NgayXuat" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Lưu Phiếu Xuất" class="btn btn-warning fw-bold" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h4>Chi tiết xuất kho</h4>
+            <table class="table table-bordered" id="tableXuat">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Thiết bị</th>
+                        <th>Số lượng xuất</th>
+                        <th>Đơn giá xuất</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm" onclick="themDong()">+ Thêm thiết bị</button>
+        </div>
+    </div>
+</form>
+
+@{
+    var thietBiJson = Json.Serialize(ViewBag.ThietBi);
+}
+
+@section Scripts {
+    <script>
+        let index = 0;
+
+        function themDong() {
+            let html = `
+            <tr>
+                <td>
+                    <select name="ChiTietPhieuXuats[${index}].ThietBiId" class="form-control">
+                        ${renderOption()}
+                    </select>
+                </td>  
+                <td>
+                    <input name="ChiTietPhieuXuats[${index}].SoLuong" class="form-control" type="number" min="1" value="1" required />
+                </td>
+                <td>
+                    <input name="ChiTietPhieuXuats[${index}].DonGiaXuat" class="form-control" type="number" min="0" value="0" />
+                </td>
+                <td>    
+                    <button type="button" class="btn btn-danger btn-sm" onclick="xoaDong(this)">Xóa</button>
+                </td>
+            </tr>`;
+            
+            document.querySelector("#tableXuat tbody").insertAdjacentHTML("beforeend", html);
+            index++;
+        }
+
+        function xoaDong(btn) {
+            btn.closest("tr").remove();
+        }
+
+        function renderOption() {
+            let data = @Html.Raw(thietBiJson);
+            let html = "";
+            
+            data.forEach(x => {
+                html += "<option value='" + x.thietBiId + "'>" + x.tenThietBi + "</option>";
+            });
+            
+            return html;
+        }
+
+        window.onload = function() {
+            themDong();
+        };
+    </script>
+}

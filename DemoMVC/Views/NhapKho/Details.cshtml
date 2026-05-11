@@ -1,0 +1,55 @@
+@model DemoMVC.Models.Entities.PhieuNhap
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu nhập";
+    // Biến tính tổng tiền của cả phiếu
+    decimal tongTienPhieu = 0; 
+}
+
+<h1>Chi Tiết Phiếu Nhập #@Model.PhieuNhapId</h1>
+<hr />
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <p><strong>Nhà cung cấp:</strong> @Model.NhaCungCap?.TenNhaCungCap</p>
+        <p><strong>Ngày nhập:</strong> @Model.NgayNhap.ToString("dd/MM/yyyy")</p>
+    </div>
+</div>
+
+<h4>Danh sách thiết bị nhập</h4>
+<table class="table table-bordered">
+    <thead class="table-warning">
+        <tr>
+            <th>Tên Thiết Bị</th>
+            <th>Số Lượng</th>
+            <th>Đơn Giá Nhập</th>
+            <th>Thành Tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.ChiTietPhieuNhaps != null)
+        {
+            foreach (var item in Model.ChiTietPhieuNhaps)
+            {
+                var thanhTien = item.SoLuong * item.DonGiaNhap;
+                tongTienPhieu += thanhTien;
+                <tr>
+                    <td>@item.ThietBi?.TenThietBi</td>
+                    <td>@item.SoLuong</td>
+                    <td>@item.DonGiaNhap.ToString("#,##0") đ</td>
+                    <td>@thanhTien.ToString("#,##0") đ</td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3" class="text-end">Tổng cộng:</th>
+            <th class="text-danger">@tongTienPhieu.ToString("#,##0") đ</th>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</div>

@@ -4,7 +4,8 @@ namespace DemoMVC.Models.Entities;
 public class Student
     {
         [Key]
-        
+        public int STT { get; set; }
+
         [Required(ErrorMessage = "Mã sinh viên không được để trống")]
         public string StudentCode { get; set; } 
 

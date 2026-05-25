@@ -29,6 +29,7 @@
     <button type="submit">Gửi dữ liệu</button>
 </form>
 *@
+@*
 @model List<StudentFacultyViewModel>
 <h2>Danh sách sinh viên</h2>
 <table class="table">
@@ -57,3 +58,26 @@
         }
     </tbody>
 </table>
+*@
+<div class="container mt-4">
+    <h2>Quản lý Sinh Viên</h2>
+    <div id="studentTableContainer">
+        <!-- Bảng danh sách sinh viên sẽ được load vào đây qua AJAX -->
+    </div>
+</div>
+
+
+<div id="modalContainer"></div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/js/student/student.js"></script>
+    <script src="~/js/student/student-table.js"></script>
+    <script src="~/js/student/student-create.js"></script>
+    <script src="~/js/student/student-edit.js"></script>
+    <script src="~/js/student/student-delete.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+}

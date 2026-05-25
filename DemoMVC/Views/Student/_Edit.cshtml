@@ -1,0 +1,46 @@
+@model DemoMVC.Models.Entities.Student
+
+<div class="modal fade" id="editStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sửa Sinh Viên</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="editStudentForm">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="STT" />
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label>Mã sinh viên</label>
+                        <input asp-for="StudentCode" class="form-control"/>
+                    </div>
+                    <div class="mb-3">
+                        <label>Họ tên</label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label>Tuổi</label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label>Khoa</label>
+                        <select asp-for="FacultyID" asp-items="ViewBag.FacultyId" class="form-control"></select>
+                        <span asp-validation-for="FacultyID" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

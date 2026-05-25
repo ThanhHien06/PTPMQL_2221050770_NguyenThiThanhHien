@@ -28,6 +28,9 @@ namespace DemoMVC.Data
         public DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
         public DbSet<PhieuXuat> PhieuXuats { get; set; }
         public DbSet<ChiTietPhieuXuat> ChiTietPhieuXuats { get; set; }
+
+        // book
+        public DbSet<Book> Books { get; set; }
     }
 }
 

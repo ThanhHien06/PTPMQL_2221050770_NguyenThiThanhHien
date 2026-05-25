@@ -17,6 +17,56 @@ namespace DemoMVC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
 
+            modelBuilder.Entity("DemoMVC.Models.Entities.Book", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PublishYear")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Publisher")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Books");
+                });
+
             modelBuilder.Entity("DemoMVC.Models.Entities.ChiTietDonHang", b =>
                 {
                     b.Property<int>("Id")
@@ -237,8 +287,9 @@ namespace DemoMVC.Migrations
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Student", b =>
                 {
-                    b.Property<string>("StudentCode")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("STT")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
@@ -256,7 +307,11 @@ namespace DemoMVC.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("StudentCode");
+                    b.Property<string>("StudentCode")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("STT");
 
                     b.HasIndex("FacultyID");
 

@@ -381,3 +381,14 @@ C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoM
 C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\DemoMVC.pdb
 C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\DemoMVC.genruntimeconfig.cache
 C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\ref\DemoMVC.dll
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\bin\Debug\net10.0\Bogus.dll
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\1euk6bldlz-{0}-f1ylcx401p-f1ylcx401p.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\ihgse95bfo-{0}-cyufyooezn-cyufyooezn.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\q2nefokzed-{0}-sxdgj04hx6-sxdgj04hx6.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\qyzjn0apgf-{0}-xkqvayhjsu-xkqvayhjsu.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\021mr5gcfs-{0}-mxr4dwvji8-mxr4dwvji8.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\qygym4969h-{0}-vaugctv4v2-vaugctv4v2.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\196u78gkyj-{0}-08b05oqd38-08b05oqd38.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\ulkjkjj45f-{0}-kbjbgn6j3p-kbjbgn6j3p.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\lfzya5saal-{0}-bxpxjlirg8-bxpxjlirg8.gz
+C:\Users\lenovo\Documents\bài tập\Phát triển phần mềm quản lý\DemoMVC\obj\Debug\net10.0\compressed\ribhr91a1s-{0}-3n7nw3zw1u-3n7nw3zw1u.gz
